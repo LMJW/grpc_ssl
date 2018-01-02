@@ -1,6 +1,8 @@
+"""
+Simple grpc server module
+"""
 from concurrent import futures
-import base64
-import time 
+import time
 import sqlite3
 
 import bfawstest_pb2
@@ -59,7 +61,7 @@ def serve():
     The server program.
     """
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
-    bfawstest_pb2_grpc.add_TestAWSServiceServicer_to_server(AWSQueryService(),server)
+    bfawstest_pb2_grpc.add_TestAWSServiceServicer_to_server(AWSQueryService(), server)
     server.add_insecure_port('[::]:22222')
     server.start()
     try:
