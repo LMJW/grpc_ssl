@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package awstest;
+
+// service, encode a plain text 
+service TestAWSService {
+    // request a service of getting some data from database
+    rpc Getdatabase(awsrequest) returns (awsresponse) {}
+}
+
+message awsrequest {
+    string testtextmessage = 1;
+}
+
+message awsresponse{
+    string responsemsg = 1;
+    repeated COUNTERANDTIMER countertimer = 2;
+}
+
+message COUNTERANDTIMER {
+    int32 orderofrequest = 1;
+    string requesttime = 2;
+    string requestinfo = 3;
+}
