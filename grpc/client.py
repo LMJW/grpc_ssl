@@ -13,7 +13,7 @@ def run():
     """
     Define the run program.
     """
-    channel = grpc.insecure_channel('localhost:22222')
+    channel = grpc.insecure_channel('52.38.18.139:22222')
     stub = bfawstest_pb2_grpc.TestAWSServiceStub(channel)
     response = stub.Getdatabase(bfawstest_pb2.awsrequest(**_REQ_MSG))
     print(response)
