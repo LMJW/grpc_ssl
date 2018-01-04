@@ -11,8 +11,8 @@ import bfawstest_pb2_grpc
 import grpc
 
 _SERVER_KEYS = dict(private_key_certificate_chain_pairs=\
-                    [(open('../out/localhost.key').read().encode(),\
-                      open('../out/localhost.crt').read().encode())],\
+                    [(open('../out/server.key').read().encode(),\
+                      open('../out/server.crt').read().encode())],\
                     root_certificates=None, require_client_auth=False)
 
 def request_to_sql(db_file, request):
@@ -68,7 +68,7 @@ def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
     bfawstest_pb2_grpc.add_TestAWSServiceServicer_to_server(AWSQueryService(), server)
     credential = grpc.ssl_server_credentials(**_SERVER_KEYS)
-    server.add_secure_port('localhost:22222', credential)
+    server.add_secure_port('[::]:22222', credential)
     server.start()
     try:
         while True:
