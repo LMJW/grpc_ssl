@@ -11,8 +11,8 @@ import bfawstest_pb2_grpc
 import grpc
 
 _SERVER_KEYS = dict(private_key_certificate_chain_pairs=\
-                    [(open('../out/localhost.key').read().encode(),\
-                      open('../out/localhost.crt').read().encode())],\
+                    [(open('../out2/localhost.key').read().encode(),\
+                      open('../out2/localhost.crt').read().encode())],\
                     root_certificates=None, require_client_auth=False)
 
 def request_to_sql(db_file, request):

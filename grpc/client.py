@@ -9,7 +9,7 @@ import bfawstest_pb2_grpc
 
 _REQ_MSG = dict(testtextmessage=input("Input the request message:\n"))
 
-_CLIENT_KEYS = dict(root_certificates=open('../out/localhost.crt').read().encode(),
+_CLIENT_KEYS = dict(root_certificates=open('../out/root.crt').read().encode(),
                     private_key=None,#open('../out/client.crt').read().encode(),
                     certificate_chain=None)
 
